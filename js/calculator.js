@@ -90,10 +90,10 @@ const onOperatorClicked = function (operator) {
   if (!hasSecondNumberEntered) {
     number1 = calculatorScreen.textContent;
     calculatorScreenTopNumber1.textContent = number1;
+    calculatorScreenTopOperatorSign.textContent = selectedOperatorTemp;
   } else {
     calculate();
     calculatorScreenTopOperatorSign.textContent = selectedOperator;
-    calculatorScreenTopNumber1.textContent = calculatorScreen.textContent;
     calculatorScreenTopNumber2.textContent = number2;
     number1 = calculatorScreen.textContent;
   }
@@ -156,6 +156,7 @@ const calculate = function () {
 
   calculatorScreen.textContent = result.toFixed(4).replace(/\.?0*$/, "");
   calculatorScreenTopNumber1.textContent = number1;
+  calculatorScreenTopOperatorSign.textContent = selectedOperator;
   calculatorScreenTopNumber2.textContent = number2;
 
   hasSecondNumberEntered = false;
