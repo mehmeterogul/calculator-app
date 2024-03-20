@@ -1,0 +1,309 @@
+:root {
+  /* Background colours */
+  --color-body-background: hsl(222, 26%, 31%);
+  --color-keypad-background: hsl(223, 31%, 20%);
+  --color-screen-background: hsl(224, 36%, 15%);
+
+  /* Key colours */
+  --color-reset-key-background: hsl(225, 21%, 49%);
+  --color-reset-key-shadow: hsl(224, 28%, 35%);
+
+  --color-equals-key-background: hsl(6, 63%, 50%);
+  --color-equals-key-shadow: hsl(6, 70%, 34%);
+
+  --color-regular-key-background: hsl(30, 25%, 89%);
+  --color-regular-key-shadow: hsl(28, 16%, 65%);
+
+  /* Text colours */
+  --color-text-dark: hsl(221, 14%, 31%);
+  --color-text-white: hsl(0, 0%, 100%);
+
+  --ff-main: "League Spartan", sans-serif;
+
+  --fs-x-large: 2.5rem;
+  --fs-large: 2rem;
+  --fs-medium: 1.125rem;
+  --fs-small: 0.75rem;
+
+  --fw-normal: 700;
+
+  --br-large: 0.625rem;
+  --br-small: 0.313rem;
+
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-body-background);
+  color: var(--color-text-dark);
+  font-family: var(--ff-main);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-large);
+  font-style: normal;
+  font-optical-sizing: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+}
+
+body.dark,
+.dark .toggle-section,
+.dark .screen {
+  color: var(--color-text-yellow);
+}
+
+.dark.keys-section .btn-equals {
+  color: var(--color-text-dark);
+}
+
+.light .toggle-section,
+.light .screen,
+.light .attribution {
+  color: var(--color-text-dark);
+}
+
+.calculator {
+  width: 100%;
+  max-width: 20.438rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-white);
+}
+
+.calculator-heading {
+  font-size: inherit;
+  padding-left: 0.625rem;
+}
+
+.toggle {
+  width: 4.375rem;
+  height: 1.625rem;
+  background-color: var(--color-keypad-background);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 0.313rem;
+  cursor: pointer;
+}
+
+.toggle span {
+  cursor: default;
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: -4rem;
+  transform: translateY(25%);
+  letter-spacing: 1px;
+}
+
+.toggle-dot {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-equals-key-background);
+  border-radius: 100%;
+}
+
+.theme-numbers {
+  cursor: default;
+  width: 100%;
+  position: absolute;
+  top: -1.125rem;
+  left: 0;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  font-size: var(--fs-small);
+  padding: 0 0.2rem;
+}
+
+.screen-section {
+  width: 100%;
+  max-width: 20.438rem;
+  height: 5.5rem;
+  background-color: var(--color-screen-background);
+  border-radius: var(--br-large);
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  font-size: var(--fs-x-large);
+  position: relative;
+}
+
+.screen-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  margin-right: 1.5rem;
+  margin-top: 0.5rem;
+  color: currentColor;
+}
+
+.hidden {
+  display: none;
+}
+
+.screen {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  overflow: hidden;
+  color: var(--color-text-white);
+}
+
+.keys-section {
+  width: 100%;
+  list-style: none;
+  background-color: var(--color-keypad-background);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.813rem;
+  padding: 1.5rem;
+  border-radius: var(--br-large);
+  margin-top: 1.5rem;
+}
+
+.keys-section li {
+  cursor: pointer;
+  background-color: var(--color-regular-key-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--br-small);
+  max-width: 3.75rem;
+  height: 4rem;
+  padding-top: 0.25rem;
+  border-bottom: 4px solid var(--color-regular-key-shadow);
+  transition: var(--transition);
+}
+
+.keys-section li:hover {
+  opacity: 0.75;
+}
+
+.keys-section .btn-big {
+  grid-column: span 2;
+  max-width: 8.313rem;
+}
+
+.keys-section .btn-reset,
+.keys-section .btn-del {
+  background-color: var(--color-reset-key-background);
+  color: var(--color-text-white);
+  font-size: var(--fs-medium);
+  border-bottom: 4px solid var(--color-reset-key-shadow);
+}
+
+.keys-section .btn-equals {
+  background-color: var(--color-equals-key-background);
+  color: var(--color-text-white);
+  font-size: var(--fs-medium);
+  border-bottom: 4px solid var(--color-equals-key-shadow);
+}
+
+.attribution {
+  font-size: 0.625rem;
+  margin-top: 0.75rem;
+  color: var(--color-text-white);
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--color-equals-key-background);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.attribution a:hover {
+  color: var(--color-equals-key-shadow);
+  opacity: 0.7;
+}
+
+@media only screen and (min-width: 33.75rem) {
+  :root {
+    --fs-x-large: 3.5rem;
+    --fs-large: 2.5rem;
+    --fs-medium: 1.75rem;
+    --fs-small: 0.75rem;
+
+    --br-large: 1rem;
+    --br-small: 0.5rem;
+  }
+
+  .calculator {
+    max-width: 33.75rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .calculator-heading {
+    font-size: var(--fs-medium);
+  }
+
+  .toggle span {
+    left: -4.5rem;
+    transform: translateY(15%);
+  }
+
+  .toggle-dot {
+    transition: var(--transition);
+  }
+
+  .theme-numbers {
+    top: -1.5rem;
+  }
+
+  .screen-section {
+    max-width: 100%;
+    height: 8rem;
+    padding: 1.5rem 2rem 2.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .screen-top {
+    margin-right: 2.25rem;
+    margin-top: 1rem;
+  }
+
+  .keys-section {
+    gap: 1.5rem;
+    padding: 1.875rem;
+  }
+
+  .keys-section li {
+    max-width: 100%;
+  }
+
+  .keys-section .btn-big {
+    max-width: 100%;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+  }
+}

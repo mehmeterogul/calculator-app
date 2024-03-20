@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="calculator">
+      <div class="toggle-section">
+        <h1 class="calculator-heading">calc</h1>
+        <div class="toggle">
+          <span>Theme</span>
+          <div class="toggle-dot"></div>
+          <ul class="theme-numbers">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="screen-section">
+        <p class="screen-top hidden">
+          <span class="screen-top-number1">399,981</span>
+          <span class="screen-top-operator">+</span>
+          <span class="screen-top-number2"></span>
+        </p>
+        <p class="screen">399,981</p>
+      </div>
+      <ul class="keys-section">
+        <li class="btn-number">7</li>
+        <li class="btn-number">8</li>
+        <li class="btn-number">9</li>
+        <li class="btn-del">DEL</li>
+        <li class="btn-number">4</li>
+        <li class="btn-number">5</li>
+        <li class="btn-number">6</li>
+        <li class="btn-opr">+</li>
+        <li class="btn-number">1</li>
+        <li class="btn-number">2</li>
+        <li class="btn-number">3</li>
+        <li class="btn-opr">-</li>
+        <li class="btn-dot">.</li>
+        <li class="btn-number">0</li>
+        <li class="btn-opr">/</li>
+        <li class="btn-opr">x</li>
+        <li class="btn-big btn-reset">RESET</li>
+        <li class="btn-big btn-equals">=</li>
+      </ul>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="https://www.github.com/mehmeterogul">Mehmet Eroğul</a>.
+    </footer>
+
+    <script src="./js/theme-handler.js"></script>
+    <script src="./js/calculator.js"></script>
+  </body>
+</html>
