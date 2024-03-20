@@ -101,6 +101,29 @@ const onOperatorClicked = function (operator) {
   selectedOperator = selectedOperatorTemp;
 };
 
+const onDelClicked = function () {
+  if (hasAnyCalculationDone && !hasSecondNumberEntered) {
+    calculatorScreen.textContent = "0";
+  }
+
+  if (calculatorScreen.textContent != "0") {
+    const screenContent = calculatorScreen.textContent;
+
+    if (screenContent[screenContent.length - 1] == ".") {
+      hasDotAdded = false;
+    }
+
+    calculatorScreen.textContent = screenContent.substring(
+      0,
+      screenContent.length - 1
+    );
+
+    if (calculatorScreen.textContent == "") {
+      calculatorScreen.textContent = "0";
+    }
+  }
+};
+
 const calculate = function () {
   if (!hasAnyOperatorSelected) return;
 
@@ -174,22 +197,7 @@ resetButton.addEventListener("click", () => {
 });
 
 delButton.addEventListener("click", () => {
-  if (calculatorScreen.textContent != "0") {
-    const screenContent = calculatorScreen.textContent;
-
-    if (screenContent[screenContent.length - 1] == ".") {
-      hasDotAdded = false;
-    }
-
-    calculatorScreen.textContent = screenContent.substring(
-      0,
-      screenContent.length - 1
-    );
-
-    if (calculatorScreen.textContent == "") {
-      calculatorScreen.textContent = "0";
-    }
-  }
+  onDelClicked();
 });
 
 equalsButton.addEventListener("click", calculate);
